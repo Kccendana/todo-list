@@ -6,32 +6,16 @@
     <title>Document</title>
 <script defer src="index.bundle.js"></script></head>
 <body>
-    
-    <div class="container">
-        <div class="to-do-app">
-            <h1 class="title">To do List</h1>
-            <ul class="task-container">
-                <li class="to-do">
-                    <div class="tasklistlabel-container">
-                        <input
-                        class="checkbox" 
-                      type="checkbox"
-                      id="task-1"
-                    />
-                    <label for="task-1">
-                      <span class="custom-checkbox"></span>
-                      record todo list video
-                    </label>
-                    </div>
-                    <button>Remove</button>
-                </li>
-            </ul>
-            <form class="form" id="add-new">
-                <button class="add" id="add" type="submit">+</button>
-                <input type="text" id="task-name" class="task-title" placeholder="new task name">
-            </form>
-        </div>
-    </div>
+    <section id="list">
+        <h1 class="list-title">To-do List</h1>
+        <form class="form" id="add-new">
+            <input required type="text" id="title" class="book-title" placeholder="Title">
+            <button class="add" id="add" type="submit">+</button>
+        </form>
+        <ul id="list-container">
+        </ul>
+        <button class="clear-completed" id="add" type="submit">Clear all completed</button>
+    </section>
     <script src="./index.js"></script>
 </body>
 </html>
