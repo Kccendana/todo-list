@@ -2,4 +2,96 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #7f00ff;  /* fallback for old browsers */
+  background: linear-gradient(to right, #e100ff, #7f00ff);
+}
+
+h1.list-title {
+  border-bottom: 1px solid gray;
+  padding: 0.5em;
+  height: 50px;
+}
+
+.to-do-app {
+  width: 100%;
+  max-width: 540px;
+  padding: 2em;
+  background-color: aliceblue;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px -1px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.to-do {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.25em;
+  gap: 3em;
+}
+
+button {
+  font-size: 2em;
+  background: none;
+  border: none;
+  padding-right: 0.5em;
+  cursor: pointer;
+}
+
+input.task-title,
+input#title {
+  width: 100%;
+  padding: 0 40px 0 1rem;
+  line-height: 50px;
+  height: 50px;
+  border: none;
+}
+
+input#title {
+  font-style: italic;
+}
+
+input#title:focus,
+input.task-title:focus {
+  outline: none;
+}
+
+form#add-new {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+
+#list-container li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(158, 157, 157);
+  padding-left: 1em;
+}
+
+.checkbox-container {
+  width: 100%;
+  display: flex;
+  gap: 0.5em;
+}
+
+section#list {
+  width: 100%;
+  max-width: 540px;
+  border: 1px solid gray;
+  box-shadow: 10px 10px 15px -1px rgba(0, 0, 0, 0.75);
+  margin-top: 5em;
+  border-radius: 10px;
+  background-color: white;
 }
