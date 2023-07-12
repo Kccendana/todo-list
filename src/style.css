@@ -67,6 +67,10 @@ input.task-title:focus {
   outline: none;
 }
 
+input.task-title:focus {
+  background-color: blanchedalmond;
+}
+
 form#add-new {
   display: flex;
   width: 100%;
