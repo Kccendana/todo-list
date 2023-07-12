@@ -50,33 +50,54 @@ class TaskList {
     this.displayTasks();
   }
 
+  editTaskDescription(index, newTitle) {
+    this.taskListArray[index].title = newTitle;
+    localStorage.setItem('taskItems', JSON.stringify(this.taskListArray));
+  }
+
   displayTasks() {
     this.taskListDiv.innerHTML = '';
 
     this.taskListArray.forEach((task, index) => {
-      this.taskListDiv.innerHTML += `
-        <li>
-          <div class="checkbox-container">
-            <input class="checkbox" type="checkbox" name="${task.title}" ${task.completed ? 'checked' : ''}>
-            <input class="task-title" type="text" value="${task.title}" readonly>
-          </div>
-          <button class="button" id="remove" data-index="${index}">-</button>
-        </li>`;
-    });
+      const listItem = document.createElement('li');
 
-    const checkboxes = document.querySelectorAll('.checkbox');
-    checkboxes.forEach((checkbox, index) => {
+      const checkboxContainer = document.createElement('div');
+      checkboxContainer.className = 'checkbox-container';
+
+      const checkbox = document.createElement('input');
+      checkbox.className = 'checkbox';
+      checkbox.type = 'checkbox';
+      checkbox.name = task.title;
+      checkbox.checked = task.completed;
       checkbox.addEventListener('change', () => {
         this.toggleTaskCompletion(index);
       });
-    });
 
-    this.removeBtns = document.querySelectorAll('.button');
-    this.removeBtns.forEach((button) => {
-      button.addEventListener('click', (event) => {
+      const taskTitle = document.createElement('input');
+      taskTitle.className = 'task-title';
+      taskTitle.type = 'text';
+      taskTitle.value = task.title;
+      taskTitle.addEventListener('input', (event) => {
+        const newTitle = event.target.value;
+        this.editTaskDescription(index, newTitle);
+      });
+
+      const removeButton = document.createElement('button');
+      removeButton.className = 'button';
+      removeButton.textContent = '-';
+      removeButton.dataset.index = index;
+      removeButton.addEventListener('click', (event) => {
         const { index } = event.target.dataset;
         this.removeTasks(index);
       });
+
+      checkboxContainer.appendChild(checkbox);
+      checkboxContainer.appendChild(taskTitle);
+
+      listItem.appendChild(checkboxContainer);
+      listItem.appendChild(removeButton);
+
+      this.taskListDiv.appendChild(listItem);
     });
 
     this.clearButton.addEventListener('click', () => {
