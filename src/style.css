@@ -13,10 +13,18 @@ body {
   background: linear-gradient(to right, #e100ff, #7f00ff);
 }
 
-h1.list-title {
+.head {
   border-bottom: 1px solid gray;
-  padding: 0.5em;
-  height: 50px;
+  padding: 1em;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+i.fa-solid.fa-arrows-rotate {
+  font-size: 1.25em;
+  cursor: pointer;
 }
 
 .to-do-app {
@@ -42,7 +50,7 @@ h1.list-title {
 }
 
 button {
-  font-size: 2em;
+  font-size: 1em;
   background: none;
   border: none;
   padding-right: 0.5em;
