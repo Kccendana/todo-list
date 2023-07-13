@@ -1,4 +1,4 @@
-import "./style.css";
-import TaskList from './modules/taskOperation';
+import './style.css';
+import TaskList from './modules/taskOperation.js';
 
 TaskList.initialize();
