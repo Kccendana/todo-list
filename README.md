@@ -65,7 +65,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo Link](https://kccendana.github.io/todo-list/)
+- [Live Demo Link](https://kccendana.github.io/todo-list/dist)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
