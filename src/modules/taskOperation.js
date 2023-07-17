@@ -1,7 +1,5 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-tabs */
-import { saveTasktoLocal, deleteTasktoLocal } from './resetTask.js';
-
 export default class TaskList {
   constructor() {
     this.taskListArray = JSON.parse(localStorage.getItem('taskItems')) || [];
@@ -23,20 +21,20 @@ export default class TaskList {
 	  completed: false,
 	  };
 	  this.taskListArray.push(task);
-	  saveTasktoLocal();
+	  this.saveTasktoLocal();
 	  this.displayTasks();
   };
 
   removeTasks = (index) => {
     this.taskListArray.splice(index, 1);
     this.updateIndexes();
-    saveTasktoLocal();
+    this.saveTasktoLocal();
     this.displayTasks();
   };
 
   toggleTaskCompletion = (index) => {
     this.taskListArray[index].completed = !this.taskListArray[index].completed;
-    saveTasktoLocal();
+    this.saveTasktoLocal();
     this.displayTasks();
   };
 
@@ -49,14 +47,19 @@ export default class TaskList {
   clearCompletedTasks = () => {
     this.taskListArray = this.taskListArray.filter((task) => !task.completed);
     this.updateIndexes();
-    saveTasktoLocal();
+    this.saveTasktoLocal();
     this.displayTasks();
   };
 
   editTaskDescription = (index, newTitle) => {
     this.taskListArray[index].title = newTitle;
-    saveTasktoLocal();
+    this.saveTasktoLocal();
   };
+
+  saveTasktoLocal = () => {
+    localStorage.setItem('taskItems', JSON.stringify(this.taskListArray));
+  };
+  
 
   displayTasks = () => {
     this.taskListDiv.innerHTML = '';
@@ -108,12 +111,13 @@ export default class TaskList {
 	  });
 
 	  this.resetAll.addEventListener('click', () => {
+      alert('click');
 	    if (this.taskListArray.length === 0) {
 	      return;
 	    }
 
-	    this.taskListArray = [];
-	    deleteTasktoLocal();
+	    // this.taskListArray = [];
+	    localStorage.clear();
 	    this.displayTasks();
 	  });
 	};

@@ -1,5 +1,5 @@
 export const saveTasktoLocal = () => {
-  localStorage.setItem('taskItems', JSON.stringify(this.taskListArray));
+  localStorage.setItem('taskItems', JSON.stringify(taskListArray));
 };
 
 export const deleteTasktoLocal = () => {
