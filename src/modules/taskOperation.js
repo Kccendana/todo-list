@@ -59,7 +59,6 @@ export default class TaskList {
   saveTasktoLocal = () => {
     localStorage.setItem('taskItems', JSON.stringify(this.taskListArray));
   };
-  
 
   displayTasks = () => {
     this.taskListDiv.innerHTML = '';
@@ -111,7 +110,6 @@ export default class TaskList {
 	  });
 
 	  this.resetAll.addEventListener('click', () => {
-      alert('click');
 	    if (this.taskListArray.length === 0) {
 	      return;
 	    }
