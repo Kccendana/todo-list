@@ -53,6 +53,32 @@ describe('taskFunctions', () => {
       expect(localStorage.setItem).not.toHaveBeenCalled();
     });
   });
-
+  describe('removeTasks', () => {
+    beforeEach(() => {
+      taskListArray.push(
+        {
+          title: 'Task 1',
+          completed: false,
+          index: 1,
+        },
+        {
+          title: 'Task 2',
+          completed: true,
+          index: 2,
+        },
+      );
+    });
+    test('should delete the task at the specified index and update localStorage', () => {
+      removeTasks(0);
+      expect(taskListArray).toHaveLength(1);
+      expect(taskListArray[0].title).toBe('Task 2');
+      expect(taskListArray[0].completed).toBe(true);
+      expect(taskListArray[0].index).toBe(1);
+      expect(localStorage.setItem).toHaveBeenCalledWith(
+        'taskItems',
+        JSON.stringify(taskListArray),
+      );
+    });
+  });
   
 });
