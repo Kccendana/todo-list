@@ -11,7 +11,7 @@ import toggleTaskCompletion from './modules/statusFunctions.js';
 import clearCompletedTasks from './modules/clearTask.js';
 
 const taskListDiv = document.querySelector('#list-container');
-const form = document.querySelector('.form');
+const form = document.querySelector('#add-new');
 const clearButton = document.getElementById('clearButton');
 const resetAll = document.querySelector('#resetAll');
 
