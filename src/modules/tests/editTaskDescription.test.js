@@ -1,6 +1,6 @@
 import 'jest-localstorage-mock';
 
-import { editTaskDescription, taskListArray} from '../taskFunctions.js';
+import { editTaskDescription, taskListArray } from '../taskFunctions.js';
 
 describe('Task Functions', () => {
   describe('editTaskDescription', () => {

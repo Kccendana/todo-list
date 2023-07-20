@@ -1,7 +1,7 @@
 import 'jest-localstorage-mock';
 
 import clearCompletedTasks from '../clearTask.js';
-import {taskListArray, saveTasktoLocal, removeTasks,} from '../taskFunctions.js';
+import { taskListArray, saveTasktoLocal, removeTasks } from '../taskFunctions.js';
 
 // Mock the localStorage and DOM elements
 jest.mock('../taskFunctions.js', () => ({
@@ -44,7 +44,7 @@ describe('clearCompletedTasks', () => {
 
   it('should not delete not completed tasks', () => {
     taskListArray.forEach((task) => {
-      taskListArray.completed = false;
+      task.completed = false;
     });
 
     clearCompletedTasks(taskListArray);
